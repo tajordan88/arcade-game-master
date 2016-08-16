@@ -29,7 +29,7 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function() {
     this.x = 200;
-    this.y = 400;
+    this.y = 375;
     this.sprite = 'images/char-boy.png';
 };
 
@@ -42,15 +42,23 @@ Player.prototype.render = function() {
     // console.log(this.y);
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-Player.prototype.handleInput = function() {
-
+Player.prototype.handleInput = function(allowedKeys) {
+    if (allowedKeys == 'up') {
+        this.y = this.y - 80;
+    } else if (allowedKeys == 'down') {
+        this.y = this.y + 80;
+    } else if (allowedKeys == 'left') {
+        this.x = this.x - 100;
+    } else if (allowedKeys == 'right') {
+        this.x = this.x + 100;
+    };
 };
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [ new Enemy() ];
+var allEnemies = [ new Enemy(), new Enemy() ];
 var player = new Player();
 
 
