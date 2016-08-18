@@ -89,6 +89,12 @@ Player.prototype.handleInput = function(allowedKeys) {
             this.x = changedPosition;
         };
     };
+
+    /* GAME END */
+    if (this.y == -25) {
+        this.x = 200;
+        this.y = 375;
+    };
 };
 
 
