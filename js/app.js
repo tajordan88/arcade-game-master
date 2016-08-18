@@ -18,6 +18,9 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x = this.x + (this.speed * dt);
+    if (this.x > 1000) {
+        this.x = -200;
+    };
     //console.log(this.x);
 };
 
@@ -36,23 +39,55 @@ var Player = function() {
 };
 
 Player.prototype.update = function(dt) {
-
+    //console.log(dt);
 };
 Player.prototype.render = function() {
-    // console.log(this.sprite);
-    // console.log(this.x);
-    // console.log(this.y);
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 Player.prototype.handleInput = function(allowedKeys) {
+    var originalPosition;
+    var changedPosition;
+    var topBoundary = -25;
+    var bottomBoundary = 375;
+    var leftBoundary = 0;
+    var rightBoundary = 400;
+
     if (allowedKeys == 'up') {
-        this.y = this.y - 80;
-    } else if (allowedKeys == 'down') {
-        this.y = this.y + 80;
-    } else if (allowedKeys == 'left') {
-        this.x = this.x - 100;
-    } else if (allowedKeys == 'right') {
-        this.x = this.x + 100;
+        originalPosition = this.y;
+        changedPosition = this.y - 80;
+        if (changedPosition < topBoundary) {
+            this.y = originalPosition;
+        } else {
+            this.y = changedPosition;
+        };
+    };
+    if (allowedKeys == 'down') {
+        originalPosition = this.y;
+        changedPosition = this.y + 80;
+        if (changedPosition > bottomBoundary) {
+            this.y = originalPosition;
+        } else {
+            this.y = changedPosition;
+        };
+    };
+
+    if (allowedKeys == 'left') {
+        originalPosition = this.x;
+        changedPosition = this.x - 100;
+        if (changedPosition < leftBoundary) {
+            this.x = originalPosition;
+        } else {
+            this.x = changedPosition;
+        };
+    };
+    if (allowedKeys == 'right') {
+        originalPosition = this.x;
+        changedPosition = this.x + 100;
+        if (changedPosition > rightBoundary) {
+            this.x = originalPosition;
+        } else {
+            this.x = changedPosition;
+        };
     };
 };
 
@@ -60,7 +95,9 @@ Player.prototype.handleInput = function(allowedKeys) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [ new Enemy(50), new Enemy(140), new Enemy(230) ];
+var allEnemies = [ new Enemy(60), new Enemy(140), new Enemy(230),
+    new Enemy(60), new Enemy(140), new Enemy(230)
+    ];
 var player = new Player();
 
 
