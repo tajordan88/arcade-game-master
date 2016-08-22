@@ -4,6 +4,7 @@ var playerY = 375;
 var deathMarker = 0;
 var playerLeft;
 var playerRight;
+var score = 0;
 
 // Enemies our player must avoid
 var Enemy = function(row) {
@@ -56,6 +57,8 @@ Player.prototype.update = function(dt) {
         this.x = playerX;
         this.y = playerY;
         deathMarker = 0;
+        score = score - 100;
+        console.log("Score: " + score);
     };
 };
 Player.prototype.render = function() {
@@ -116,6 +119,8 @@ Player.prototype.handleInput = function(allowedKeys) {
     if (this.y == -25) {
         this.x = 200;
         this.y = 375;
+        score = score + 100;
+        console.log("Score: " + score);
     };
 };
 
