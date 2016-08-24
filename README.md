@@ -7,13 +7,13 @@ For detailed instructions on how to get started, check out this [guide](https://
 
 
 
-#**Frogger Arcade Game**
+# **Frogger Arcade Game**
 In this game you have a Player and Enemies (Bugs). The goal of the player is to reach the water, without colliding into any one of the enemies. The player can move left, right, up and down. The enemies move in varying speeds on the paved block portion of the scene. Once a the player collides with an enemy, the game is reset and the player moves back to the start square. Once the player reaches the water the game is won.
 
-##Running The Game
+## Running The Game
 Open index.html in your web browser to load the game.
 
-##Playing the Game
+## Playing the Game
 Move with up, down, left, and right arrow keys to avoid the bugs and make it across the road to the water!
 
 
