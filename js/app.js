@@ -8,10 +8,10 @@ var score = 0;
 
 
 // Enemies our player must avoid
-var Enemy = function(row) {
+var Enemy = function(row,startPos) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-    this.x = -100;
+    this.x = startPos;
     this.y = row;
     this.speed = Math.floor((Math.random() * 200) + 100);
     // The image/sprite for our enemies, this uses
@@ -147,12 +147,13 @@ Player.prototype.handleInput = function(allowedKeys) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [new Enemy(55), new Enemy(135), new Enemy(215),
-    new Enemy(55), new Enemy(135), new Enemy(215),
-    new Enemy(55), new Enemy(135), new Enemy(215),
-    new Enemy(55), new Enemy(135), new Enemy(215)
+var allEnemies = [new Enemy(55, -100), new Enemy(135, -100), new Enemy(215, -100),
+    new Enemy(55, -200), new Enemy(135, -200), new Enemy(215, -200),
+    new Enemy(55, -300), new Enemy(135, -300), new Enemy(215, -300),
+    new Enemy(55, -300), new Enemy(135, -300), new Enemy(215, -300)
 ];
 var player = new Player();
+
 
 
 // This listens for key presses and sends the keys to your
