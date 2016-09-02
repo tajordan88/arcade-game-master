@@ -6,6 +6,7 @@ var playerLeft;
 var playerRight;
 var score = 0;
 
+
 // Enemies our player must avoid
 var Enemy = function(row) {
     // Variables applied to each of our instances go here,
@@ -57,7 +58,15 @@ Player.prototype.update = function(dt) {
         this.x = playerX;
         this.y = playerY;
         deathMarker = 0;
+
+        /* SCORE KEEPER */
         score = score - 100;
+        ctx.font = "30px Arial";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, 500, 100);
+        ctx.fillStyle = "black";
+        ctx.fillText("Score: " + score, 100, 40);
         console.log("Score: " + score);
     }
 };
@@ -120,6 +129,16 @@ Player.prototype.handleInput = function(allowedKeys) {
         this.x = 200;
         this.y = 375;
         score = score + 100;
+        ctx.font = "30px Arial";
+        ctx.textAlign = "center";
+
+        /* SCORE KEEPER */
+        ctx.font = "30px Arial";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, 500, 100);
+        ctx.fillStyle = "black";
+        ctx.fillText("Score: " + score, 100, 40);
         console.log("Score: " + score);
     }
 };

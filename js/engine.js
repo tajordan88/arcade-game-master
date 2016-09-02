@@ -81,6 +81,7 @@ var Engine = (function(global) {
     function update(dt) {
         updateEntities(dt);
         // checkCollisions();
+        ctx.fillText("Score", 200, 250);
     }
 
     /* This is called by the update function and loops through all of the
